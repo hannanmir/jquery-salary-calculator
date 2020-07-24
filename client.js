@@ -2,6 +2,8 @@ console.log('js');
 
 $(document).ready(readyNow);
 
+let salarySum = [];
+
 function readyNow() {
     console.log('jQuery');
     $('#inputBtn').on('click', submitInfo);
@@ -24,14 +26,25 @@ function submitInfo() {
             <td>${employee.lastname}</td>
             <td>${employee.id}</td>
             <td>${employee.title}</td>
-            <td>${employee.salary}</td>
+            <td class="calcM">${employee.salary}</td>
         </tr>`);
-
         console.log(employee);
+        salaryOne = employee.salary/12
+        salarySum.push(salaryOne);
+        console.log(salarySum);
+        monthlyCalc(salarySum);
         $('#firstInput').val('');
         $('#lastInput').val('');
         $('#idInput').val('');
         $('#titleInput').val('');
         $('#salaryInput').val('');
     }
+}
+
+function monthlyCalc(salary) {
+    let salaryMonthly = 0;
+    for (let i = 0; i < salary.length; i++)  
+    salaryMonthly += salary[i];  
+    $('.total').empty();
+    $('.total').append(`<p>Total Monthly: $${salaryMonthly}</p>`); 
 }
