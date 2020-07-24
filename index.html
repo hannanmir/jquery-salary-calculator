@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="client.js"></script>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Salary Calculator</title>
+</head>
+    <header>
+        <h1>Salary Calculator</h1>
+    </header>
+<body>
+    <section>
+        <p>Add Employee</p>
+        <input id="firstInput" type="text" class="input" placeholder="First Name">
+        <input id="lastInput" type="text" class="input" placeholder="Last Name">
+        <input id="idInput" type="text" class="input" placeholder="ID">
+        <input id="titleInput" type="text" class="input" placeholder="Title">
+        <input id="salaryInput" type="text" class="input" placeholder="Annual Salary">
+        <button id="inputBtn" class="button1">Submit</button>
+    </section>
+    <main>
+        <table id="cloth">
+            <thead>
+                <tr>
+                    <th class="tableH">First Name</th>
+                    <th class="tableH">Last Name</th>
+                    <th class="tableH">ID</th>
+                    <th class="tableH">Title</th>
+                    <th class="tableH">Annual Salary</th>
+                    <th class="tableH"></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p class="total">Total Monthly: $</p>
+    </footer>
+</body>
+</html>
