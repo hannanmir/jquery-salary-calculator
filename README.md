@@ -1,9 +1,12 @@
 # jQuery Salary Calculator
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
-
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+A simple calculator for determing the monthly payroll budget. HTML/CSS framework with jQuery used to append and javascript to run the logic behind the scenes. Additional styling completed with Bootstrap.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+Functionality inclues:
+- Input name, title, id, and annual salary
+- Creates a dynamic table which displays employee data
+- Each employee can be removed from the table
+- Dynamic monthly total for payroll displayed at the bottom, with warnings if over budget
+
