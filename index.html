@@ -10,20 +10,21 @@
     <title>Salary Calculator</title>
 </head>
     <header>
-        <h1>Salary Calculator</h1>
+        <h1 class="text-center shadow p-3 mb-5 bg-dark text-white rounded container " >Salary Calculator</h1>
     </header>
 <body>
     <section>
-        <p>Add Employee</p>
+        <p class="text-center font-weight-bold" >Add Employee</p>
         <input id="firstInput" type="text" class="input" placeholder="First Name">
         <input id="lastInput" type="text" class="input" placeholder="Last Name">
         <input id="idInput" type="text" class="input" placeholder="ID">
         <input id="titleInput" type="text" class="input" placeholder="Title">
         <input data-name="sum" id="salaryInput" type="number" class="input" placeholder="Annual Salary">
-        <button id="inputBtn" class="button1">Submit</button>
+        <button id="inputBtn" class="button1 btn btn-dark">Submit</button>
     </section>
     <main>
-        <table id="cloth">
+        <p class="text-center font-weight-bold"> Employees</p>
+        <table class="table table-dark table-striped table-bordered table-sm">
             <thead>
                 <tr>
                     <th class="tableH">First Name</th>
@@ -34,7 +35,7 @@
                     <th class="tableH"></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="target">
             </tbody>
         </table>
     </main>

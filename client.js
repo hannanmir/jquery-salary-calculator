@@ -7,6 +7,7 @@ let salarySum = [];
 function readyNow() {
     console.log('jQuery');
     $('#inputBtn').on('click', submitInfo);
+    $('#target').on('click', '.delete', deleteStuff);
 }
 
 function submitInfo() {
@@ -20,13 +21,14 @@ function submitInfo() {
     if (employee.firstname === '' || employee.lastname === ''|| employee.id === '' || employee.title === '' || employee.salary === '') {
         alert('Please enter all fields.');
     } else {
-        $('#cloth').append(`
+        $('#target').append(`
         <tr>
             <td>${employee.firstname}</td>
             <td>${employee.lastname}</td>
             <td>${employee.id}</td>
             <td>${employee.title}</td>
             <td class="calcM">${employee.salary}</td>
+            <td><button class="delete btn btn-secondary">Delete</button></td>
         </tr>`);
         console.log(employee);
         salaryOne = employee.salary/12
@@ -46,5 +48,15 @@ function monthlyCalc(salary) {
     for (let i = 0; i < salary.length; i++)  
     salaryMonthly += salary[i];  
     $('.total').empty();
-    $('.total').append(`<p>Total Monthly: $${salaryMonthly}</p>`); 
+    $('.total').append(`<p class="text-center font-weight-bolder">Total Monthly: $${salaryMonthly}</p>`); 
+    if (salaryMonthly > 20000) {
+        $('.total').toggleClass("makeRedp-3 mb-2 bg-danger text-white");
+    } else {
+        $('.total').toggleClass("p-3 mb-2 bg-secondary text-white");
+    }
+}
+
+function deleteStuff() {
+    console.log('Exterminate!');
+    $(this).parent().parent().empty();
 }
