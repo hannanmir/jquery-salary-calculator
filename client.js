@@ -48,11 +48,13 @@ function monthlyCalc(salary) {
     for (let i = 0; i < salary.length; i++)  
     salaryMonthly += salary[i];  
     $('.total').empty();
-    $('.total').append(`<p class="text-center font-weight-bolder">Total Monthly: $${salaryMonthly}</p>`); 
+    $('.total').append(`<p class="p-3 mb-2 text-white text-center font-weight-bolder">Total Monthly: $${salaryMonthly}</p>`); 
     if (salaryMonthly > 20000) {
-        $('.total').toggleClass("makeRedp-3 mb-2 bg-danger text-white");
-    } else {
-        $('.total').toggleClass("p-3 mb-2 bg-secondary text-white");
+        $('.total').addClass("bg-danger");
+        $('.total').removeClass("bg-secondary");
+    } else if (salaryMonthly <= 20000) {
+        $('.total').removeClass("bg-danger");
+        $('.total').addClass("bg-secondary");
     }
 }
 
