@@ -27,11 +27,11 @@ function submitInfo() {
             <td>${employee.lastname}</td>
             <td>${employee.id}</td>
             <td>${employee.title}</td>
-            <td class="calcM">${employee.salary}</td>
+            <td data-id='tester' class='calcM'>${employee.salary}</td>
             <td><button class="delete btn btn-secondary">Delete</button></td>
         </tr>`);
         console.log(employee);
-        salaryOne = employee.salary/12
+        salaryOne = employee.salary/12;
         salarySum.push(salaryOne);
         console.log(salarySum);
         monthlyCalc(salarySum);
@@ -48,7 +48,8 @@ function monthlyCalc(salary) {
     for (let i = 0; i < salary.length; i++)  
     salaryMonthly += salary[i];
     $('.total').empty();
-    $('.total').append(`<p class="p-3 mb-2 text-white text-center font-weight-bolder">Total Monthly: $${salaryMonthly.toFixed(2)}</p>`); 
+    $('.total').append(`<p class="p-3 mb-2 text-white text-center font-weight-bolder">Total Monthly: $${salaryMonthly.toFixed(2)}</p>`);
+    $('.total').data('storedM', Number(salaryMonthly));
     if (salaryMonthly > 20000) {
         $('.total').addClass("bg-danger");
         $('.total').removeClass("bg-secondary");
@@ -58,7 +59,19 @@ function monthlyCalc(salary) {
     }
 }
 
-function deleteStuff() {
+function deleteStuff(salary) {
     console.log('Exterminate!');
+    let deletedValue = Number($(this).parent().prev().text());
+    let currentValue = $('.total').data('storedM') - (deletedValue/12)
+    $('.total').empty();
+    $('.total').append(`<p class="p-3 mb-2 text-white text-center font-weight-bolder">Total Monthly: $${currentValue.toFixed(2)}</p>`);
+    $('.total').data('storedM', Number(currentValue));
+    if (currentValue > 20000) {
+        $('.total').addClass("bg-danger");
+        $('.total').removeClass("bg-secondary");
+    } else if (currentValue <= 20000) {
+        $('.total').removeClass("bg-danger");
+        $('.total').addClass("bg-secondary");
+    }
     $(this).parent().parent().empty();
 }
