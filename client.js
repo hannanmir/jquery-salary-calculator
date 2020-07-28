@@ -45,8 +45,9 @@ function submitInfo() {
 
 function monthlyCalc(salary) {
     let salaryMonthly = 0;
-    for (let i = 0; i < salary.length; i++)  
+    for (let i = 0; i < salary.length; i++) {
     salaryMonthly += salary[i];
+    }
     $('.total').empty();
     $('.total').append(`<p class="p-3 mb-2 text-white text-center font-weight-bolder">Total Monthly: $${salaryMonthly.toFixed(2)}</p>`);
     $('.total').data('storedM', Number(salaryMonthly));
